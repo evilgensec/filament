@@ -318,7 +318,8 @@ void FrameInfoManager::updateUserHistory(FSwapChain* swapChain, DriverApi& drive
         auto& entry = history[i];
 
         // retrieve the displayPresentTime only we don't already have it
-        if (entry.displayPresent == Renderer::FrameInfo::PENDING) {
+        if (entry.displayPresent == Renderer::FrameInfo::PENDING ||
+            entry.displayPresent == Renderer::FrameInfo::INVALID) {
             FrameTimestamps frameTimestamps{
                 .displayPresentTime = FrameTimestamps::INVALID
             };
